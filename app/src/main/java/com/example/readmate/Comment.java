@@ -50,7 +50,7 @@ public class Comment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Ganti MainActivity dengan activity yang kamu tuju
-                Intent intent = new Intent(Comment.this, MainActivity.class);
+                Intent intent = new Intent(Comment.this, DetailArtikel.class);
                 startActivity(intent);
             }
         });
