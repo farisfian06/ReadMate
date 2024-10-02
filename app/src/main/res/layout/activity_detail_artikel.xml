@@ -7,19 +7,184 @@
     android:layout_height="match_parent"
     tools:context=".DetailArtikel">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="161dp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tessssss"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="302dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Readmate"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="?attr/actionModeCloseDrawable" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:text="Menkominfo Segera Umumkan Pemilik Akun Fufufafa, Klaim Bukan Gibran "
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:text="Menteri Komunikasi dan Informatika (Menkominfo) Budi Arie Setiadi mengatakan bakal segera mengumumkan siapa pemilik akun Kaskus fufufafa yang jadi sorotan masyarakat dalam beberapa waktu terakhir. Akun Fufufafa sebelumnya diduga kuat milik Wakil Presiden terpilih Gibran Rakabuming Raka. Budi Arie mengatakan informasi terkait pemilik akun fufufafa akan diumumkan ketika pihaknya telah menemukan identitas pemilik akun.\n\n&quot;Nanti diumumin kalau tahu siapa yang punya, nanti diumumin. Yang pasti bukan punya Mas Gibran,&quot; kata Budi Arie di Kantor Kominfo, Jakarta, Kamis (12/9).\n\nBudi Arie mengaku pihaknya mengetahui akun tersebut bukan milik Gibran setelah melakukan pelacakan. Namun, Budi Arie tidak memberi tahu siapa pemilik akun tersebut karena masih melakukan penelusuran.\n\nIa juga bersikeras akun fufufafa bukan milik Gibran dan menyebut isu ini adalah upaya adu domba. Namun begitu, Budi Arie tidak menjelaskan maksud dari upaya adu domba tersebut, dan siapa yang sedang diadu.\n\n&quot;Bukan [milik Gibran], itu upaya mengadu domba,&quot; kata dia.\n\nSebelumnya, Gibran juga telah angkat suara terkait akun Kaskus fufufafa yang dituding warganet merupakan miliknya.\n\nAkun yang ramai dibincangkan di media sosial itu mencuat ke permukaan karena sering menghujat Ketua Umum Gerindra Prabowo Subianto selama masa Pemilu 2014 lalu."
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Comment"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <ImageButton
+                        android:id="@+id/commentBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:rotation="180f"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7"
+                        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="All comment"
+                        app:layout_constraintEnd_toStartOf="@+id/commentBtn"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="235dp"
+                                android:layout_height="52dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_marginBottom="30dp"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis ut neque non iaculis"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="30dp"
+                                android:text="User 1"
+                                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="30dp"
+                                android:layout_marginTop="30dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:srcCompat="@tools:sample/avatars" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
