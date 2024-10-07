@@ -19,7 +19,7 @@
             android:name=".Bookmark"
             android:exported="false" />
         <activity
-            android:name=".Comment"
+            android:name=".CommentActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

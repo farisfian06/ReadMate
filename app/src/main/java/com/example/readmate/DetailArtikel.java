@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class DetailArtikel extends AppCompatActivity {
 
@@ -25,7 +21,7 @@ public class DetailArtikel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Intent untuk membuka CommentActivity
-                Intent intent = new Intent(DetailArtikel.this, Comment.class);
+                Intent intent = new Intent(DetailArtikel.this, CommentActivity.class);
                 startActivity(intent);  // Memulai aktivitas baru
             }
         });
