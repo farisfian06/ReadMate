@@ -1,6 +1,7 @@
 package com.example.readmate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +28,14 @@ public class ArtikelAdapter extends RecyclerView.Adapter {
         private final TextView tvJudul;
         private final TextView tvTanggal;
         private final TextView tvTopik;
+        private final ImageView thumbnail;
 
         public ArtikelVh(@NonNull View itemView) {
             super(itemView);
             this.tvJudul = itemView.findViewById(R.id.tvJudul);
             this.tvTanggal = itemView.findViewById(R.id.tvTanggal);
             this.tvTopik= itemView.findViewById(R.id.tvTopik);
+            this.thumbnail = itemView.findViewById(R.id.thumbnail);
         }
     }
 
@@ -53,6 +56,18 @@ public class ArtikelAdapter extends RecyclerView.Adapter {
         vh.tvJudul.setText(a.getJudul());
         vh.tvTanggal.setText(a.getTanggal());
         vh.tvTopik.setText(a.getTopik());
+        vh.thumbnail.setImageResource(a.thumbnail);
+
+        // Set OnClickListener untuk setiap item
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(ctx, DetailArtikel.class);
+            intent.putExtra("judul", a.getJudul());
+            intent.putExtra("tanggal", a.getTanggal());
+
+            // Start activity
+            ctx.startActivity(intent);
+        });
     }
 
     @Override

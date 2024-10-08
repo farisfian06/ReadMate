@@ -4,11 +4,13 @@ public class Artikel {
     private String judul;
     private String tanggal;
     private String topik;
+    int thumbnail;
 
-    public Artikel(String judul, String tanggal, String topik) {
+    public Artikel(String judul, String tanggal, String topik, int thumbnail) {
         this.judul = judul;
         this.tanggal = tanggal;
         this.topik = topik;
+        this.thumbnail = thumbnail;
     }
 
     public String getJudul() {

@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentActivity extends AppCompatActivity implements View.OnClickListener{
+    public class CommentActivity extends AppCompatActivity implements View.OnClickListener{
 
     private List<Comment> comments;
     private RecyclerView rvComment;
@@ -36,17 +36,19 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
         commentForm = findViewById(R.id.commentForm);
 
+        int[] profile = {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5};
+
         List<Comment> data = new ArrayList<>();
         this.rvComment = findViewById(R.id.rvComment);
         this.btSend = findViewById(R.id.sendBtn);
         this.btSend.setOnClickListener(this);
 
-        data.add(new Comment("keren bgt", "user 1"));
-        data.add(new Comment("woww", "user 2"));
-        data.add(new Comment("ooouww", "user 3"));
-        data.add(new Comment("okeee", "user 4"));
-        data.add(new Comment("makasih beritanya", "user 5"));
-        data.add(new Comment("apakah betul", "user 6"));
+        data.add(new Comment("Berita informatif", "user 1", profile[0]));
+        data.add(new Comment("Woww", "user 2", profile[1]));
+        data.add(new Comment("Ooouww", "user 3", profile[2]));
+        data.add(new Comment("Keren banget", "user 4", profile[3]));
+        data.add(new Comment("Siapa ya kira-kira fufufafa nya", "user 5", profile[4]));
+        data.add(new Comment("Menkominfo ", "user 6", profile[1]));
         this.comments = data;
 
         this.commentAdapter = new CommentAdapter(this, data);
@@ -65,20 +67,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
 
-//    private void addCommentCard(String comment, String userName) {
-//        // Inflate layout CardView dari XML
-//        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View commentCardView = inflater.inflate(R.layout.comment_card_layout, null);
-//
-//        // Update konten di dalam CardView
-//        TextView userTextView = commentCardView.findViewById(R.id.tvNama);
-//        TextView commentTextView = commentCardView.findViewById(R.id.tvIsi);
-//        userTextView.setText(userName);
-//        commentTextView.setText(comment);
-//
-//        // Tambahkan CardView baru ke container
-//        commentContainer.addView(commentCardView);
-//    }
 
     @Override
     public void onClick(View view) {
@@ -88,7 +76,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(CommentActivity.this, "Comment berhasil ditambahkan", Toast.LENGTH_SHORT).show();
             // Buat dan tambahkan CardView baru untuk menampilkan komentar
             int index = comments.size()+1;
-            comments.add(new Comment(comment, "User "+index));
+            comments.add(new Comment(comment, "User "+index, R.drawable.profile1));
             this.commentAdapter.notifyDataSetChanged();
             commentForm.setText(""); // Kosongkan form setelah submit
         }

@@ -24,16 +24,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int[] thumbnail = {R.drawable.thumbnail1, R.drawable.thumbnail2, R.drawable.thumbnail3, R.drawable.thumbnail4, R.drawable.thumbnail5, R.drawable.thumbnail6, R.drawable.thumbnail7 };
+
         this.rvJudulArtikel = this.findViewById(R.id.rvJudulArtikel);
 
         List<Artikel> data = new ArrayList<>();
-        data.add(new Artikel("Menkominfo Segera Umumkan Pemilik Akun Fufufafa, Klaim Bukan Gibran", "12 September 2024", "Politik"));
-        data.add(new Artikel("Momen Dasco Telepon Prabowo Saat Rapat dengan Solidaritas Hakim Indonesia", "08 Oktober 2024", "News"));
-        data.add(new Artikel("Israel Serang Beirut Selatan, Hizbullah Tembakkan Roket Dekat Tel Aviv", "08 Oktober 2024", "Global"));
-        data.add(new Artikel("Shin Tae-yong: Maarten Paes Agak Terlambat Datang", "07 Oktober 2024", "Olahraga"));
-        data.add(new Artikel("Mobil Listrik Lamborghini Baru Muncul 2028", "08 Oktober 2024", "Otomotif"));
-        data.add(new Artikel("AHY Berhasil Lulus Doktor di Unair, Ini Isi Disertasinya", "08 Oktober 2024", "Edukasi"));
-        data.add(new Artikel("Google Hapus Antivirus Kaspersky dari Play Store, Kenapa?", "08 Oktober 2024", "Teknologi"));
+        data.add(new Artikel("Menkominfo Segera Umumkan Pemilik Akun Fufufafa, Klaim Bukan Gibran", "12 September 2024", "Politik", thumbnail[0]));
+        data.add(new Artikel("Momen Dasco Telepon Prabowo Saat Rapat dengan Solidaritas Hakim Indonesia", "08 Oktober 2024", "News", thumbnail[1]));
+        data.add(new Artikel("Israel Serang Beirut Selatan, Hizbullah Tembakkan Roket Dekat Tel Aviv", "08 Oktober 2024", "Global", thumbnail[2]));
+        data.add(new Artikel("Shin Tae-yong: Maarten Paes Agak Terlambat Datang", "07 Oktober 2024", "Olahraga", thumbnail[3]));
+        data.add(new Artikel("Mobil Listrik Lamborghini Baru Muncul 2028", "08 Oktober 2024", "Otomotif", thumbnail[4]));
+        data.add(new Artikel("AHY Berhasil Lulus Doktor di Unair, Ini Isi Disertasinya", "08 Oktober 2024", "Edukasi", thumbnail[5]));
+        data.add(new Artikel("Google Hapus Antivirus Kaspersky dari Play Store, Kenapa?", "08 Oktober 2024", "Teknologi", thumbnail[6]));
         this.data = data;
 
         this.artikelAdapter = new ArtikelAdapter(this, data);

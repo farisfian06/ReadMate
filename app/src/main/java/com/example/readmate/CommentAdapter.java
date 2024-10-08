@@ -52,6 +52,7 @@ public class CommentAdapter extends RecyclerView.Adapter {
 
         vh.tvNama.setText(c.getNama());
         vh.tvIsi.setText(c.getIsi());
+        vh.imageView3.setImageResource(c.profile);
 
     }
 

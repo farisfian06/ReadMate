@@ -3,10 +3,12 @@ package com.example.readmate;
 public class Comment {
     private String nama;
     private String isi;
+    int profile;
 
-    public Comment(String isi, String nama) {
-        this.isi = isi;
+    public Comment(String isi, String nama, int profile) {
         this.nama = nama;
+        this.isi = isi;
+        this.profile = profile;
     }
 
     public String getNama() {
