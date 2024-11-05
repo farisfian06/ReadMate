@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ArtikelAdapter extends RecyclerView.Adapter {
+public class  ArtikelAdapter extends RecyclerView.Adapter {
 
     private final Context ctx;
     private final List<Artikel> data;
