@@ -34,7 +34,7 @@ import java.util.List;
 
         ImageButton backBtn = findViewById(R.id.backBtn);
 
-        commentForm = findViewById(R.id.commentForm);
+        this.commentForm = findViewById(R.id.commentForm);
 
         int[] profile = {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5};
 

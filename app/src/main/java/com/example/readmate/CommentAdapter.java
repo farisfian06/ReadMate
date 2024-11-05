@@ -60,4 +60,6 @@ public class CommentAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return this.data.size();
     }
+
+
 }
