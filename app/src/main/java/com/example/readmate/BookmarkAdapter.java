@@ -51,7 +51,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
 
         vh.judul.setText(b.getJudul());
         vh.waktu.setText(b.getWaktu());
-        vh.gambarArtikel.setImageResource(b.gambarArtikel);
+//        vh.gambarArtikel.setImageResource(b.gambarArtikel);
 
     }
 
