@@ -3,9 +3,9 @@ package com.example.readmate;
 public class Comment {
     private String nama;
     private String isi;
-    int profile;
+    String profile;
 
-    public Comment(String isi, String nama, int profile) {
+    public Comment(String isi, String nama, String profile) {
         this.nama = nama;
         this.isi = isi;
         this.profile = profile;
@@ -27,7 +27,7 @@ public class Comment {
         this.isi = isi;
     }
 
-    public int getProfile() {
+    public String getProfile() {
         return profile;
     }
 }

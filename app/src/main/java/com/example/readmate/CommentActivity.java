@@ -36,7 +36,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageButton btSend;
 
     interface Request{
-        @GET("comment.json")
+        @GET("comments")
         Call<List<Comment>> getComment();
     }
 
@@ -52,7 +52,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         this.rvComment.setLayoutManager(new LinearLayoutManager(this));
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.123/myapi/")
+                .baseUrl("http://192.168.3.108/belajar api/belajar_api/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -116,7 +116,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(CommentActivity.this, "Comment berhasil ditambahkan", Toast.LENGTH_SHORT).show();
             // Buat dan tambahkan CardView baru untuk menampilkan komentar
             int index = comments.size()+1;
-            comments.add(new Comment(comment, "User "+index, R.drawable.profile1));
+//            comments.add(new Comment(comment, "User "+index, R.drawable.profile1));
             this.commentAdapter.notifyDataSetChanged();
             commentForm.setText(""); // Kosongkan form setelah submit
         }

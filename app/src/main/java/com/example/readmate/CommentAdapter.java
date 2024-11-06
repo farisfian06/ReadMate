@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter {
@@ -52,7 +54,14 @@ public class CommentAdapter extends RecyclerView.Adapter {
 
         vh.tvNama.setText(c.getNama());
         vh.tvIsi.setText(c.getIsi());
-        vh.imageView3.setImageResource(c.profile);
+//        vh.imageView3.setImageResource(c.profile);
+        if (c.getProfile() != null && !c.getProfile().isEmpty()) {
+            Picasso.get()
+                    .load(c.getProfile()) // asumsi `getProfileUrl` mengembalikan URL gambar profil
+                    .placeholder(R.drawable.profile1) // Gambar sementara saat loading
+                    .error(R.drawable.ic_launcher_background)       // Gambar jika terjadi error
+                    .into(vh.imageView3);
+        }
     }
 
     @Override
