@@ -5,6 +5,8 @@ public class Comment {
     private String isi;
     String profile;
 String a;
+String b;
+String c;
 
     public Comment(String isi, String nama, String profile) {
         this.nama = nama;
