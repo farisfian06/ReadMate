@@ -52,7 +52,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         this.rvComment.setLayoutManager(new LinearLayoutManager(this));
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.3.108/myapi/")
+                .baseUrl("http://192.168.0.123/myapi/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

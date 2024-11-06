@@ -26,4 +26,8 @@ public class Comment {
     public void setIsi(String isi) {
         this.isi = isi;
     }
+
+    public int getProfile() {
+        return profile;
+    }
 }
