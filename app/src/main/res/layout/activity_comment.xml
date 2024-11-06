@@ -56,7 +56,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tanggal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -66,7 +66,7 @@
                 android:text="Sabtu, 12 September 2024 | 13.25 WIB"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/gambar"
                 app:layout_constraintTop_toBottomOf="@+id/judulArtikel" />
 
             <TextView
@@ -80,11 +80,11 @@
 "
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/gambar"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/gambar"
                 android:layout_width="117dp"
                 android:layout_height="172dp"
                 android:layout_marginStart="20dp"

@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvJudulArtikel;
     private ArtikelAdapter artikelAdapter;
     private List<Artikel> data;
+    private ImageButton bookmarkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.bookmarkBtn = findViewById(R.id.bookmarkBtn);
 
         int[] thumbnail = {R.drawable.thumbnail1, R.drawable.thumbnail2, R.drawable.thumbnail3, R.drawable.thumbnail4, R.drawable.thumbnail5, R.drawable.thumbnail6, R.drawable.thumbnail7 };
 
@@ -43,5 +46,15 @@ public class MainActivity extends AppCompatActivity {
         this.rvJudulArtikel.setLayoutManager(
                 new LinearLayoutManager(this)
         );
+
+        bookmarkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent untuk membuka CommentActivity
+                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
+                startActivity(intent);  // Memulai aktivitas baru
+            }
+        });
+
     }
 }
