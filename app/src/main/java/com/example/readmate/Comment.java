@@ -4,8 +4,7 @@ public class Comment {
     private String nama;
     private String isi;
     String profile;
-String asdsa;
-int asd;
+String a;
 
     public Comment(String isi, String nama, String profile) {
         this.nama = nama;
