@@ -101,7 +101,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="4dp"
                         android:layout_marginEnd="15dp"
                         android:text="Menteri Komunikasi dan Informatika (Menkominfo) Budi Arie Setiadi mengatakan bakal segera mengumumkan siapa pemilik akun Kaskus fufufafa yang jadi sorotan masyarakat dalam beberapa waktu terakhir. Akun Fufufafa sebelumnya diduga kuat milik Wakil Presiden terpilih Gibran Rakabuming Raka. Budi Arie mengatakan informasi terkait pemilik akun fufufafa akan diumumkan ketika pihaknya telah menemukan identitas pemilik akun.
                             \n\n&quot;Nanti diumumin kalau tahu siapa yang punya, nanti diumumin. Yang pasti bukan punya Mas Gibran,&quot; kata Budi Arie di Kantor Kominfo, Jakarta, Kamis (12/9).
@@ -110,6 +110,7 @@
                             \n\n&quot;Bukan [milik Gibran], itu upaya mengadu domba,&quot; kata dia.\n\nSebelumnya, Gibran juga telah angkat suara terkait akun Kaskus fufufafa yang dituding warganet merupakan miliknya.
                             \n\nAkun yang ramai dibincangkan di media sosial itu mencuat ke permukaan karena sering menghujat Ketua Umum Gerindra Prabowo Subianto selama masa Pemilu 2014 lalu."
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -155,57 +156,6 @@
                         app:layout_constraintEnd_toStartOf="@+id/commentBtn"
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:cardCornerRadius="30dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/tvIsi"
-                                android:layout_width="235dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_marginBottom="30dp"
-                                android:text="Berita informatif"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                                app:layout_constraintTop_toBottomOf="@+id/tvNama" />
-
-                            <TextView
-                                android:id="@+id/tvNama"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="30dp"
-                                android:text="User 1"
-                                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:layout_marginStart="30dp"
-                                android:layout_marginTop="30dp"
-                                android:scaleType="fitXY"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/profile1" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
@@ -216,6 +166,14 @@
                         android:textSize="14dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <FrameLayout
+                        android:id="@+id/frameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>

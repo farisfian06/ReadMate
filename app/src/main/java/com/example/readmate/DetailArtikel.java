@@ -7,6 +7,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class DetailArtikel extends AppCompatActivity {
 
@@ -29,6 +31,11 @@ public class DetailArtikel extends AppCompatActivity {
         this.tvTanggal = findViewById(R.id.tvTanggal);
         this.tvTanggal.setText(tanggal);
         this.tvJudul.setText(judul);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, new CommentFragment());
+        fragmentTransaction.commit();
 
         commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override

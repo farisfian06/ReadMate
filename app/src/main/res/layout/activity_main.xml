@@ -40,7 +40,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJudulArtikel"
         android:layout_width="409dp"
-        android:layout_height="599dp"
+        android:layout_height="0dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/bookmarkBtn"

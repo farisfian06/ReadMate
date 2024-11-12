@@ -36,7 +36,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageButton btSend;
 
     interface Request{
-        @GET("comments")
+        @GET("comment.json")
         Call<List<Comment>> getComment();
     }
 
@@ -52,7 +52,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         this.rvComment.setLayoutManager(new LinearLayoutManager(this));
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.3.108/belajar api/belajar_api/api/")
+                .baseUrl("http://192.168.56.1/myapi/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -100,9 +100,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ganti MainActivity dengan activity yang kamu tuju
-                Intent intent = new Intent(CommentActivity.this, DetailArtikel.class);
-                startActivity(intent);
+               finish();
             }
         });
     }
