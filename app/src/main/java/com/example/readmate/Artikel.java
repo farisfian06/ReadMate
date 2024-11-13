@@ -1,12 +1,12 @@
 package com.example.readmate;
 
 public class Artikel {
-    private String judul;
-    private String tanggal;
-    private String topik;
-    int thumbnail;
+    public String judul;
+    public String tanggal;
+    public String topik;
+    public String thumbnail;
 
-    public Artikel(String judul, String tanggal, String topik, int thumbnail) {
+    public Artikel(String judul, String tanggal, String topik, String thumbnail) {
         this.judul = judul;
         this.tanggal = tanggal;
         this.topik = topik;
@@ -27,4 +27,9 @@ public class Artikel {
         return topik;}
     public void setTopik(String topik) {
         this.topik= topik;}
+
+    public String getThumbnail() {
+        return thumbnail;}
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail= thumbnail;}
 }
