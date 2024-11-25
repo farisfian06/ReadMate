@@ -1,9 +1,11 @@
 package com.example.readmate;
 
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,22 +14,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Add the SearchFragment to the layout
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, new SearchFragment())
                     .commit();
         }
-    }
 
-    public void toggleSearchVisibility(View view) {
-        // Get the SearchFragment instance
-        SearchFragment searchFragment = (SearchFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.fragment_container);
-
-        if (searchFragment != null) {
-            // Call the toggleSearchVisibility method in the SearchFragment
-            searchFragment.toggleSearchVisibility();
-        }
+        ImageButton searchButton = findViewById(R.id.imageButton);
+        searchButton.setOnClickListener(v -> {
+            SearchFragment searchFragment = (SearchFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.fragment_container);
+            if (searchFragment != null) {
+                searchFragment.toggleSearchVisibility();
+            }
+        });
     }
 }

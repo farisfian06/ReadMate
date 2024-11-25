@@ -2,6 +2,7 @@ package com.example.readmate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelVh> implements Filterable {
-
     private final Context ctx;
     private final List<Artikel> data;
-    private List<Artikel> dataFiltered; // Backup list for filtering
+    private List<Artikel> dataFiltered;
 
     public ArtikelAdapter(Context ctx, List<Artikel> data) {
         this.ctx = ctx;
         this.data = data;
-        this.dataFiltered = new ArrayList<>(data); // Initialize backup list
+        this.dataFiltered = new ArrayList<>(data);
     }
 
-    public class ArtikelVh extends RecyclerView.ViewHolder {
+    public static class ArtikelVh extends RecyclerView.ViewHolder {
         private final TextView tvJudul;
         private final TextView tvTanggal;
         private final TextView tvTopik;
@@ -38,7 +38,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
             super(itemView);
             this.tvJudul = itemView.findViewById(R.id.tvJudul);
             this.tvTanggal = itemView.findViewById(R.id.tvTanggal);
-            this.tvTopik= itemView.findViewById(R.id.tvTopik);
+            this.tvTopik = itemView.findViewById(R.id.tvTopik);
             this.thumbnail = itemView.findViewById(R.id.thumbnail);
         }
     }
@@ -46,24 +46,25 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
     @NonNull
     @Override
     public ArtikelVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowview = LayoutInflater.from(this.ctx).inflate(R.layout.artikel_card_layout, parent, false);
-        return new ArtikelVh(rowview);
+        View rowView = LayoutInflater.from(ctx).inflate(R.layout.artikel_card_layout, parent, false);
+        return new ArtikelVh(rowView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ArtikelVh holder, int position) {
-        Artikel a = dataFiltered.get(position);
-        holder.tvJudul.setText(a.getJudul());
-        holder.tvTanggal.setText(a.getTanggal());
-        holder.tvTopik.setText(a.getTopik());
-
-        int imageResource = this.ctx.getResources().getIdentifier(a.thumbnail, "drawable", this.ctx.getPackageName());
-        holder.thumbnail.setImageResource(imageResource);
+        Artikel artikel = dataFiltered.get(position);
+        holder.tvJudul.setText(artikel.getJudul());
+        holder.tvTanggal.setText(artikel.getTanggal());
+        holder.tvTopik.setText(artikel.getTopik());
+        holder.thumbnail.setImageResource(artikel.getThumbnail());
 
         holder.itemView.setOnClickListener(v -> {
+
             Intent intent = new Intent(ctx, DetailArtikel.class);
-            intent.putExtra("judul", a.getJudul());
-            intent.putExtra("tanggal", a.getTanggal());
+            intent.putExtra("judul", artikel.getJudul());
+            intent.putExtra("tanggal", artikel.getTanggal());
+
+            // Start activity
             ctx.startActivity(intent);
         });
     }
@@ -78,16 +79,18 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
+                Log.d("ArtikelAdapter", "Filter diterapkan: " + constraint);
                 List<Artikel> filteredList = new ArrayList<>();
                 if (constraint == null || constraint.length() == 0) {
-                    filteredList.addAll(data); // Show all data if no query
+                    filteredList.addAll(data);
                 } else {
                     String filterPattern = constraint.toString().toLowerCase().trim();
                     for (Artikel artikel : data) {
                         if (artikel.getJudul().toLowerCase().contains(filterPattern)) {
-                            filteredList.add(artikel); // Add matching articles to filtered list
+                            filteredList.add(artikel);
                         }
                     }
+                    Log.d("ArtikelAdapter", "Artikel yang cocok: " + filteredList.size());
                 }
 
                 FilterResults results = new FilterResults();
@@ -98,8 +101,8 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 dataFiltered.clear();
-                dataFiltered.addAll((List) results.values); // Update filtered data
-                notifyDataSetChanged(); // Refresh RecyclerView
+                dataFiltered.addAll((List<Artikel>) results.values);
+                notifyDataSetChanged();
             }
         };
     }
