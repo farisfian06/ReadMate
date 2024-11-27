@@ -38,5 +38,13 @@ public class DetailArtikel extends AppCompatActivity {
                 startActivity(intent);  // Memulai aktivitas baru
             }
         });
+
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

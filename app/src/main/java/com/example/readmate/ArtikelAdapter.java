@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +58,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         holder.tvJudul.setText(artikel.getJudul());
         holder.tvTanggal.setText(artikel.getTanggal());
         holder.tvTopik.setText(artikel.getTopik());
-        holder.thumbnail.setImageResource(artikel.getThumbnail());
 
         holder.itemView.setOnClickListener(v -> {
 
@@ -67,6 +68,14 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
             // Start activity
             ctx.startActivity(intent);
         });
+
+        if (artikel.getThumbnail() != null && !artikel.getThumbnail().isEmpty()) {
+            Picasso.get()
+                    .load(artikel.getThumbnail()) // asumsi getProfileUrl mengembalikan URL gambar profil
+                    .placeholder(R.drawable.thumbnail1) // Gambar sementara saat loading
+                    .error(R.drawable.ic_launcher_background)       // Gambar jika terjadi error
+                    .into(holder.thumbnail);
+        }
     }
 
     @Override

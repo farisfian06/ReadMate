@@ -1,18 +1,16 @@
 package com.example.readmate;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "artikel_table")
 public class Artikel {
-    @PrimaryKey(autoGenerate = true)
     private int id;
     private String judul;
     private String tanggal;
     private String topik;
-    private int thumbnail; // Simpan sebagai resource ID
+    private String thumbnail;
 
-    public Artikel(String judul, String tanggal, String topik, int thumbnail) {
+    public Artikel() {}
+
+    public Artikel(String judul, String tanggal, String topik, String thumbnail) {
         this.judul = judul;
         this.tanggal = tanggal;
         this.topik = topik;
@@ -43,10 +41,12 @@ public class Artikel {
     public void setTopik(String topik) {
         this.topik = topik;
     }
-    public int getThumbnail() {
+
+    public String getThumbnail() {
         return thumbnail;
     }
-    public void setThumbnail(int thumbnail) {
+
+    public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
 }
