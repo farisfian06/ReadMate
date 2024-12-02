@@ -1,17 +1,27 @@
 package com.example.readmate;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
+import android.widget.ImageButton;
+
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
+import com.example.readmate.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,48 +31,69 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvJudulArtikel;
     private ArtikelAdapter artikelAdapter;
     private List<Artikel> data;
-    private RequestQueue queue;
+
+    private ImageButton bookmarkBtn;
+
+    private FirebaseFirestore db;
+    ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
 
-        int[] thumbnail = {
-                R.drawable.thumbnail1, R.drawable.thumbnail2, R.drawable.thumbnail3,
-                R.drawable.thumbnail4, R.drawable.thumbnail5, R.drawable.thumbnail6, R.drawable.thumbnail7
-        };
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.homeBottom){
+                replaceFragment(new HomeFragment());
+            }
+            else if (item.getItemId() == R.id.bookmarkBottom){
+                replaceFragment(new BookmarkFragment());
+            }
+            return true;
+        });
 
-        // Initialize RecyclerView
-        rvJudulArtikel = findViewById(R.id.rvJudulArtikel);
+//        this.bookmarkBtn = findViewById(R.id.bookmarkBtn);
 
-        // Initialize data list
-        data = new ArrayList<>();
+//        this.rvJudulArtikel = this.findViewById(R.id.rvJudulArtikel);
+//        List<Artikel> data = new ArrayList<>();
+//        this.artikelAdapter = new ArtikelAdapter(this, data);
+//        this.rvJudulArtikel.setAdapter(this.artikelAdapter);
+//        this.rvJudulArtikel.setLayoutManager(
+//                new LinearLayoutManager(this)
+//        );
+//
+//        db = FirebaseFirestore.getInstance();
+//        db.collection("artikel").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                for (DocumentChange dc: value.getDocumentChanges()) {
+//                    if (dc.getType() == DocumentChange.Type.ADDED){
+//                        data.add(dc.getDocument().toObject(Artikel.class));
+//                    }
+//                artikelAdapter.notifyDataSetChanged();
+//                }
+//            }
+//        });
 
-        // Initialize RequestQueue
-        queue = Volley.newRequestQueue(this);
+//        bookmarkBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Intent untuk membuka CommentActivity
+//                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
+//                startActivity(intent);  // Memulai aktivitas baru
+//            }
+//        });
 
-        // Set up Adapter
-        artikelAdapter = new ArtikelAdapter(this, data);
-        rvJudulArtikel.setAdapter(artikelAdapter);
-        rvJudulArtikel.setLayoutManager(new LinearLayoutManager(this));
+    }
+    public void replaceFragment(Fragment fragmen){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, fragmen);
+        fragmentTransaction.commit();
 
-        // Define the URL and StringRequest
-        String url = "http://10.0.2.2/myapi/artikel.json";
-        StringRequest req = new StringRequest(
-                Request.Method.GET, url,
-                response -> {
-                    Gson gson = new Gson();
-                    Artikel[] array = gson.fromJson(response, Artikel[].class);
-                    for (Artikel artikel : array) {
-                        data.add(artikel);
-                    }
-                    artikelAdapter.notifyDataSetChanged();
-                },
-                error -> Toast.makeText(this, error.getMessage(), Toast.LENGTH_LONG).show()
-        );
-
-        // Add request to the queue
-        queue.add(req);
     }
 }
