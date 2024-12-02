@@ -31,6 +31,9 @@
         </activity>
 
         <activity
+            android:name=".BookmarkActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailArtikel"
             android:exported="false" />
         <activity
