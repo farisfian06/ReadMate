@@ -1,12 +1,16 @@
 package com.example.readmate;
 
-public class Artikel {
+import java.io.Serializable;
+
+public class Artikel implements Serializable {
     private String judul;
     private String tanggal;
     private String topik;
-    int thumbnail;
+    private String isi;
+    String thumbnail;
 
-    public Artikel(String judul, String tanggal, String topik, int thumbnail) {
+    public Artikel (){}
+    public Artikel(String judul, String tanggal, String topik, String thumbnail) {
         this.judul = judul;
         this.tanggal = tanggal;
         this.topik = topik;
@@ -27,4 +31,20 @@ public class Artikel {
         return topik;}
     public void setTopik(String topik) {
         this.topik= topik;}
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public String getIsi() {
+        return isi;
+    }
+
+    public void setIsi(String isi) {
+        this.isi = isi;
+    }
+
 }
