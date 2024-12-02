@@ -115,11 +115,13 @@
                 android:id="@+id/commentForm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:maxHeight="100dp"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Comment"
+                android:gravity="start|top"
+                android:hint="Tambahkan komentar"
+                android:inputType="textMultiLine"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sendBtn"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,11 +129,9 @@
                 android:id="@+id/sendBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/commentForm"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_send" />
 

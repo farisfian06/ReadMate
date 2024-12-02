@@ -3,7 +3,7 @@ public class Comment {
     private String id;
     private String nama;
     private String isi;
-    String profile;
+    private String profile;
 
 
     public Comment(){ }
@@ -44,4 +44,5 @@ public class Comment {
     public void setProfile(String profile) {
         this.profile = profile;
     }
+
 }
