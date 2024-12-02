@@ -91,3 +91,4 @@ public class  ArtikelAdapter extends RecyclerView.Adapter {
         }
     }
 }
+

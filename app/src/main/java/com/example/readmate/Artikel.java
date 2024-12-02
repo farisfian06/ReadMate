@@ -32,6 +32,7 @@ public class Artikel implements Serializable {
     public void setTopik(String topik) {
         this.topik= topik;}
 
+
     public String getThumbnail() {
         return thumbnail;
     }
@@ -48,3 +49,4 @@ public class Artikel implements Serializable {
     }
 
 }
+

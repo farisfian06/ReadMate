@@ -1,10 +1,13 @@
 package com.example.readmate;
 
 import android.os.Bundle;
+
 import android.widget.ImageButton;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvJudulArtikel;
     private ArtikelAdapter artikelAdapter;
     private List<Artikel> data;
+
     private ImageButton bookmarkBtn;
 
     private FirebaseFirestore db;
     ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
