@@ -1,14 +1,23 @@
 package com.example.readmate;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.readmate.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,41 +29,65 @@ public class MainActivity extends AppCompatActivity {
     private List<Artikel> data;
     private ImageButton bookmarkBtn;
 
+    private FirebaseFirestore db;
+    ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
 
-        this.bookmarkBtn = findViewById(R.id.bookmarkBtn);
-
-        int[] thumbnail = {R.drawable.thumbnail1, R.drawable.thumbnail2, R.drawable.thumbnail3, R.drawable.thumbnail4, R.drawable.thumbnail5, R.drawable.thumbnail6, R.drawable.thumbnail7 };
-
-        this.rvJudulArtikel = this.findViewById(R.id.rvJudulArtikel);
-
-        List<Artikel> data = new ArrayList<>();
-        data.add(new Artikel("Menkominfo Segera Umumkan Pemilik Akun Fufufafa, Klaim Bukan Gibran", "12 September 2024", "Politik", thumbnail[0]));
-        data.add(new Artikel("Momen Dasco Telepon Prabowo Saat Rapat dengan Solidaritas Hakim Indonesia", "08 Oktober 2024", "News", thumbnail[1]));
-        data.add(new Artikel("Israel Serang Beirut Selatan, Hizbullah Tembakkan Roket Dekat Tel Aviv", "08 Oktober 2024", "Global", thumbnail[2]));
-        data.add(new Artikel("Shin Tae-yong: Maarten Paes Agak Terlambat Datang", "07 Oktober 2024", "Olahraga", thumbnail[3]));
-        data.add(new Artikel("Mobil Listrik Lamborghini Baru Muncul 2028", "08 Oktober 2024", "Otomotif", thumbnail[4]));
-        data.add(new Artikel("AHY Berhasil Lulus Doktor di Unair, Ini Isi Disertasinya", "08 Oktober 2024", "Edukasi", thumbnail[5]));
-        data.add(new Artikel("Google Hapus Antivirus Kaspersky dari Play Store, Kenapa?", "08 Oktober 2024", "Teknologi", thumbnail[6]));
-        this.data = data;
-
-        this.artikelAdapter = new ArtikelAdapter(this, data);
-        this.rvJudulArtikel.setAdapter(this.artikelAdapter);
-        this.rvJudulArtikel.setLayoutManager(
-                new LinearLayoutManager(this)
-        );
-
-        bookmarkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Intent untuk membuka CommentActivity
-                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
-                startActivity(intent);  // Memulai aktivitas baru
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.homeBottom){
+                replaceFragment(new HomeFragment());
             }
+            else if (item.getItemId() == R.id.bookmarkBottom){
+                replaceFragment(new BookmarkFragment());
+            }
+            return true;
         });
+
+//        this.bookmarkBtn = findViewById(R.id.bookmarkBtn);
+
+//        this.rvJudulArtikel = this.findViewById(R.id.rvJudulArtikel);
+//        List<Artikel> data = new ArrayList<>();
+//        this.artikelAdapter = new ArtikelAdapter(this, data);
+//        this.rvJudulArtikel.setAdapter(this.artikelAdapter);
+//        this.rvJudulArtikel.setLayoutManager(
+//                new LinearLayoutManager(this)
+//        );
+//
+//        db = FirebaseFirestore.getInstance();
+//        db.collection("artikel").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                for (DocumentChange dc: value.getDocumentChanges()) {
+//                    if (dc.getType() == DocumentChange.Type.ADDED){
+//                        data.add(dc.getDocument().toObject(Artikel.class));
+//                    }
+//                artikelAdapter.notifyDataSetChanged();
+//                }
+//            }
+//        });
+
+//        bookmarkBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Intent untuk membuka CommentActivity
+//                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
+//                startActivity(intent);  // Memulai aktivitas baru
+//            }
+//        });
+
+    }
+    public void replaceFragment(Fragment fragmen){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, fragmen);
+        fragmentTransaction.commit();
 
     }
 }
