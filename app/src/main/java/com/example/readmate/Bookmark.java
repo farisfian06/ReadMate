@@ -1,38 +1,30 @@
 package com.example.readmate;
 
 public class Bookmark {
-    private String judul;
-    private String waktu;
-    int gambarArtikel;
-
-    public Bookmark(String judul, String waktu, int gambarArtikel) {
-        this.judul = judul;
-        this.waktu = waktu;
-        this.gambarArtikel = gambarArtikel;
+    private Artikel artikel;
+    private String id;
+    public Bookmark(){}
+    public Bookmark(Artikel artikel) {
+        this.artikel = artikel;
+    }
+    public Bookmark(String id, Artikel artikel) {
+        this.id = id;
+        this.artikel = artikel;
     }
 
-    public String getJudul() {
-        return judul;
+    public Artikel getArtikel() {
+        return artikel;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setArtikel(Artikel artikel) {
+        this.artikel = artikel;
     }
 
-    public String getWaktu() {
-        return waktu;
+    public String getId() {
+        return id;
     }
 
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
+    public void setId(String id) {
+        this.id = id;
     }
-
-    public int getGambarArtikel() {
-        return gambarArtikel;
-    }
-
-    public void setGambarArtikel(int gambarArtikel) {
-        this.gambarArtikel = gambarArtikel;
-    }
-
 }
