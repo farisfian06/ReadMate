@@ -7,6 +7,7 @@ public class Artikel implements Serializable {
     private String tanggal;
     private String topik;
     private String isi;
+    private int id;
     String thumbnail;
 
     public Artikel (){}
@@ -48,5 +49,12 @@ public class Artikel implements Serializable {
         this.isi = isi;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
 
