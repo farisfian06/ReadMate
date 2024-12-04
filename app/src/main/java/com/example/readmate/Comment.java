@@ -4,13 +4,15 @@ public class Comment {
     private String nama;
     private String isi;
     private String profile;
+    private int artikelId;
 
 
     public Comment(){ }
-    public Comment(String isi, String nama, String profile) {
+    public Comment(String isi, String nama, String profile, int artikelId) {
         this.nama = nama;
         this.isi = isi;
         this.profile = profile;
+        this.artikelId = artikelId;
     }
 
     public String getNama() {
@@ -45,4 +47,11 @@ public class Comment {
         this.profile = profile;
     }
 
+    public int getArtikelId() {
+        return artikelId;
+    }
+
+    public void setArtikelId(int artikelId) {
+        this.artikelId = artikelId;
+    }
 }

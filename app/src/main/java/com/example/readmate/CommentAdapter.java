@@ -38,8 +38,8 @@ public class CommentAdapter extends RecyclerView.Adapter {
         public CommentVh(@NonNull View itemView) {
             super(itemView);
             this.tvNama = itemView.findViewById(R.id.tvNama);
-            this.tvIsi = itemView.findViewById(R.id.tvIsi);
-            this.imageView3 = itemView.findViewById(R.id.imageView3);
+            this.tvIsi = itemView.findViewById(R.id.tvIsiKomentar);
+            this.imageView3 = itemView.findViewById(R.id.ivKomentar);
             this.btDelete = itemView.findViewById(R.id.deleteBtn);
 
             this.btDelete.setOnClickListener(new View.OnClickListener() {
