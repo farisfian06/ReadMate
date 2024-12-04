@@ -52,7 +52,8 @@ public class CommentAdapter extends RecyclerView.Adapter {
 
         public void bind (Comment c){
             this.comment = c;
-            this.tvIsi.setText(c.getIsi());
+            String replace = c.getIsi().replace("\\n", "\n");
+            this.tvIsi.setText(replace);
             this.tvNama.setText(c.getNama());
 
             if (c.getProfile() != null && !c.getProfile().isEmpty()) {

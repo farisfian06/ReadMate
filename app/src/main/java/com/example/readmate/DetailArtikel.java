@@ -42,7 +42,11 @@ public class DetailArtikel extends AppCompatActivity implements View.OnClickList
         this.tvJudul = findViewById(R.id.tvJudul);
         this.tvTanggal = findViewById(R.id.tvTanggal);
         this.tvIsi = findViewById(R.id.tvIsiArtikel);
-        this.tvIsi.setText(artikel.getIsi());
+        String isiArtikel = artikel.getIsi();
+        if (isiArtikel!= null && !isiArtikel.isEmpty()){
+        isiArtikel = isiArtikel.replace("\\n", "\n");
+        }
+        this.tvIsi.setText(isiArtikel);
         this.tvTanggal.setText(artikel.getTanggal());
         this.tvJudul.setText(artikel.getJudul());
 

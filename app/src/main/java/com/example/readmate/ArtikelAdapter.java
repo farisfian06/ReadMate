@@ -60,10 +60,6 @@ public class  ArtikelAdapter extends RecyclerView.Adapter {
 
             Intent intent = new Intent(ctx, DetailArtikel.class);
             intent.putExtra("artikel", a);
-//            intent.putExtra("judul", a.getJudul());
-//            intent.putExtra("tanggal", a.getTanggal());
-//            intent.putExtra("thumbnail", a.getThumbnail());
-//            intent.putExtra("isi", a.getIsi());
 
             // Start activity
             ctx.startActivity(intent);
