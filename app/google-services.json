@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "917332479831",
+    "project_id": "artreadmate",
+    "storage_bucket": "artreadmate.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917332479831:android:43323c879c47c2b5a0f812",
+        "android_client_info": {
+          "package_name": "com.example.readmate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj08S6CPBNY25xyERXw7ra7-TU34e-F1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

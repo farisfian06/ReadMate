@@ -1,10 +1,12 @@
 package com.example.readmate;
-
 public class Comment {
+    private String id;
     private String nama;
     private String isi;
-    String profile;
+    private String profile;
 
+
+    public Comment(){ }
     public Comment(String isi, String nama, String profile) {
         this.nama = nama;
         this.isi = isi;
@@ -30,4 +32,17 @@ public class Comment {
     public String getProfile() {
         return profile;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
 }

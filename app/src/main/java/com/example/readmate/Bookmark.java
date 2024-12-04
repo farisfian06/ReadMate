@@ -1,24 +1,30 @@
 package com.example.readmate;
 
-import android.os.Bundle;
+public class Bookmark {
+    private Artikel artikel;
+    private String id;
+    public Bookmark(){}
+    public Bookmark(Artikel artikel) {
+        this.artikel = artikel;
+    }
+    public Bookmark(String id, Artikel artikel) {
+        this.id = id;
+        this.artikel = artikel;
+    }
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+    public Artikel getArtikel() {
+        return artikel;
+    }
 
-public class Bookmark extends AppCompatActivity {
+    public void setArtikel(Artikel artikel) {
+        this.artikel = artikel;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_bookmark);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
